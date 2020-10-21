@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import todoListReducer from './todoList/todoList.reducer';
+import userReducer from './user/user.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-    todo: todoListReducer
+    todoList: todoListReducer,
+    user: userReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
