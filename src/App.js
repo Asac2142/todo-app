@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { selectCurrentUser } from './redux/user/user.selectors';
+//import { selectCurrentUser } from './redux/user/user.selectors';
 import Header from './components/header/header.component';
+import UserPresentation from './components/user-presentation/user-presentation.component';
 
 import './App.css';
 import { setCurrentUser } from './redux/user/user.actions';
+import Footer from './components/footer/footer.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -36,7 +38,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <Header></Header>
+      <div className='container'>
+        <Header className='header'/>
+        <div className='main'>
+          <UserPresentation />
+        </div>
+        <footer className='footer'>
+          <Footer />
+        </footer>
+      </div>      
     )
   }
 }
@@ -47,10 +57,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: selectCurrentUser(state)
-  };
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     currentUser: selectCurrentUser(state)
+//   };
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

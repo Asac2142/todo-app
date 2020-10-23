@@ -6,3 +6,33 @@
   box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+html,
+body {
+  height: 100%;
+  background-color: #272525;
+}
+
+.container {
+  display: grid;  
+  grid-template-rows: auto auto 6rem;
+  grid-template-areas: 'header'
+                       'main'
+                       'footer';                         
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  grid-area: main;
+  width: 100%;
+}
+
+.footer {
+  grid-area: footer;
+}
