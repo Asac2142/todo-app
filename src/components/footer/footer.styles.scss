@@ -1,0 +1,43 @@
+.footer {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+
+    a {
+        margin: 0 1rem;
+    }
+
+    .github,
+    .linkedin,
+    .stackoverflow {
+        background-position: center;
+        background-size: cover;
+        height: 3rem;
+        width: 3rem;        
+        filter: grayscale(1);
+    }
+
+    .github {
+        background: url('../../assets/github.svg');
+        &:hover {
+            filter: invert(1);
+        }
+    }
+
+    .linkedin {
+        background: url('../../assets/linkedin.svg');
+        
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+
+    .stackoverflow {
+        background: url('../../assets/stackoverflow.svg');        
+
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+}
