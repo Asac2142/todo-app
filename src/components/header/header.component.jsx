@@ -6,16 +6,18 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => {
-    console.log('Current user', currentUser);
+const Header = ({ currentUser }) => {    
     return (
         <div className='header'>    
-            <span className='logo-title'>TODO 9000</span>                               
+            <div className='logo-title'>
+                <div className='logo'></div>
+                <p>TODO 9000</p>
+            </div>
             <div className='menu'>
                 {
                     currentUser ? 
-                    <div className='menu-option' onClick={() => auth.signOut()}>SIGN OUT</div> :
-                    <div className='menu-option' onClick={() => signInWithGoogle()}>SIGN IN</div>
+                    <div className='sign-out' onClick={() => auth.signOut()}>SIGN OUT</div> :
+                    <div className='sign-in' onClick={() => signInWithGoogle()}>SIGN IN</div>
                 }
             </div>
         </div>
