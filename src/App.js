@@ -2,18 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-//import { selectCurrentUser } from './redux/user/user.selectors';
+import { setCurrentUser } from './redux/user/user.actions';
 import Header from './components/header/header.component';
-import UserPresentation from './components/user-presentation/user-presentation.component';
+import Footer from './components/footer/footer.component';
+import Welcome from './components/welcome/welcome.component';
 
 import './App.css';
-import { setCurrentUser } from './redux/user/user.actions';
-import Footer from './components/footer/footer.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
-  componentDidMount = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+        height: '100vh'
+    };    
+  };
+
+  componentDidMount = () => {    
     const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async (userAuth) => {      
       if (userAuth) {
@@ -30,19 +36,32 @@ class App extends React.Component {
         setCurrentUser(userAuth);
       }
     });
+    this.detectDevice();
   };
 
   componentWillUnmount = () => {
     this.unsubscribeFromAuth();
-  }
+  };
+
+  detectDevice = () => {   
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);    
+
+    if (isMobile) {      
+      this.setState({height: '100%'}, () => document.querySelector('.main').style.height = this.state.height);
+    } else {
+      this.setState({height: '100vh'}, () => document.querySelector('.main').style.height = this.state.height);
+    }
+  };
 
   render() {
     return (
       <div className='container'>
-        <Header className='header'/>
-        <div className='main'>
-          <UserPresentation />
-        </div>
+        <header className='header'>
+          <Header />
+        </header>
+        <section className='main'>
+          <Welcome />
+        </section>
         <footer className='footer'>
           <Footer />
         </footer>
