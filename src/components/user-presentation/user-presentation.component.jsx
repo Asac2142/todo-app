@@ -17,7 +17,7 @@ const UserPresentation = ({ currentUser, todoList }) => {
                 <div className='user-info'>
                     <h1>Welcome</h1>
                     <h2>{currentUser.currentUser.displayName}</h2>
-                    <p>You have <span className='task-counter'>{todoList.length}</span> task(s) for today</p>
+                    <p>You have <span className='task-counter'>{todoList.length ? todoList.length : 0}</span> task(s) for today</p>
                 </div>
             </div>            
             <TaskForm />            

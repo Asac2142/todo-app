@@ -7,7 +7,6 @@
     flex-direction: column;
     border-radius: 0.3rem;
     margin-bottom: 1.5rem;
-    //gap: 0.5rem;
 
     label {
         margin-bottom: 0.5rem;
@@ -23,18 +22,21 @@
         border: 1px solid #ccc;
 
         &:focus {
-            border: 1.5px solid #51a1ff;
+            border: 1.5px solid #5851FF;
         }
     }
 
-    .react-colorful {
-        height: auto;
-        width: auto;         
+    .hexcolor {                
+        .react-colorful {
+            height: auto;
+            width: auto;             
+        }
+    
+        .react-colorful__saturation {        
+            height: 6rem;
+        }
     }
 
-    .react-colorful__saturation {
-        display: none;
-    }
 
     .btn-container {
         margin-top: 2.5rem;
@@ -42,9 +44,9 @@
         .btnSave {
             width: 100%;
             padding: 1rem;
-            border: 1px solid #51a1ff;
+            border: 1px solid #5851FF;
             border-radius: 0.4rem;  
-            background: #51a1ff;
+            background: #5851FF;
             color: #fff;
             font-weight: bold;
             letter-spacing: 0.2rem;
@@ -53,7 +55,7 @@
             &:hover,
             &:active {
                 cursor: pointer;
-                background: #2c85eb;   
+                background: #6762f5;   
                 box-shadow: 1px 2px 2px #ccc;                             
             }
         }
@@ -64,7 +66,7 @@
     .form {
         display: grid;
         grid-template-columns: 5rem auto;
-        grid-template-rows: 1fr 1fr 1fr;    
+        grid-template-rows: auto;    
         gap: 0.5rem;
 
         .btn-container {
